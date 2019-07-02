@@ -8,23 +8,22 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.aandb.AcademicSystem.model.Resultados;
 import com.aandb.AcademicSystem.model.DBConnection;
+import com.aandb.AcademicSystem.model.Silabo_Bibliografia;
 
-public class ResultadosDAO {
-	
+public class Silabo_BibliografiaDAO {
 	private DBConnection dbConnection;
     private Connection connection;
     
-    public ResultadosDAO(String jdbcURL, String jdbcUsername, String jdbcPassword) throws SQLException
+    public Silabo_BibliografiaDAO(String jdbcURL, String jdbcUsername, String jdbcPassword) throws SQLException
     {
         dbConnection = new DBConnection(jdbcURL, jdbcUsername, jdbcPassword);
     }
     
-    public boolean insert(Resultados resultado) throws SQLException
+    public boolean insert(Silabo_Bibliografia silabo_bibliografia) throws SQLException
     {
     	int nextId=0;
-    	String sql = "SELECT * FROM resultado";
+    	String sql = "SELECT * FROM `silabo-bibliografia`";
         dbConnection.connect();
         connection = dbConnection.getJdbcConnection();
         Statement statement = connection.createStatement();
@@ -35,12 +34,14 @@ public class ResultadosDAO {
             nextId = resultSet.getInt("id");
         }
         
-        String sqlinsert = "INSERT INTO resultado VALUES (?,?)";
+        String sqlinsert = "INSERT INTO `silabo-bibliografia` VALUES (?,?,?,?)";
         dbConnection.connect();
         connection = dbConnection.getJdbcConnection();
         PreparedStatement statementinsert = connection.prepareStatement(sqlinsert);
         statementinsert.setInt(1,nextId+1);
-        statementinsert.setString(2, resultado.getDescripcion());
+        statementinsert.setString(2, silabo_bibliografia.getTipo());
+        statementinsert.setInt(3,silabo_bibliografia.getId_silabo());
+        statementinsert.setInt(4,silabo_bibliografia.getId_bibliografia());
         
         boolean rowInserted = statementinsert.executeUpdate() > 0;
         statement.close();
@@ -48,7 +49,7 @@ public class ResultadosDAO {
         return rowInserted;
     }
     
-    public List<Resultados> listResults() throws SQLException
+    /*public List<Resultados> listResults() throws SQLException
     {
         List<Resultados> listResults = new ArrayList<Resultados>();
         String sql = "SELECT * FROM resultados";
@@ -92,5 +93,5 @@ public class ResultadosDAO {
         dbConnection.disconnect();
         
         return result;
-    }
+    }*/
 }

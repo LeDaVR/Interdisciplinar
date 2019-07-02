@@ -15,7 +15,13 @@
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
+	
+	<script type="text/javascript">
+		function refreshDocente_name(){
+			var docente=document.getElementById("list");
+			document.getElementById("docente_name").value=docente.options[docente.selectedIndex].value;
+		}
+	</script>
 </head>
 
 <body id="page-top">
@@ -335,34 +341,54 @@
           <!-- Page Heading -->
           <h1 class="h3 mb-4 text-gray-800">Register Silabus</h1>
           <div class="text-center">
-            <h1 class="h4 text-gray-900 mb-4">Subject Information</h1>
+            <h1 class="h4 text-gray-900 mb-4">Informacion Administrativa</h1>
           </div>
-          <form class="user" action="#" method="post">
-         	<select th:field="*{subjects}">
-         		<option value=""> Please select a subject ... </option>
-   				<option th:each="subject : ${subjects}" th:value="${subject.name}" th:text="${subject.name}" />
+          <form class="user" action="/registerSilabus" method="post">
+         	
+           <div class="text-center">
+          	<select class="btn btn-danger btn-icon-split" id="list" th:field="*{teachers}">
+         		<option class="form-control form-control-user" value=""> Please select a Teacher ... </option>
+   				<option  class="form-control form-control-user" th:each="teacher : ${teachers}" th:value="${teacher.nombre}" th:text="${teacher.nombre}" />
 			</select>
-            <div class="form-group row">
-              <div class="col-sm-6 mb-3 mb-sm-0">
-                <input type="text" class="form-control form-control-user" name="cui" placeholder="CUI">
-              </div>
-              <div class="col-sm-6">
-                <input type="text" class="form-control form-control-user" name="age" placeholder="Age">
-              </div>
-            </div>
-            <div class="form-group row">
-              <div class="col-sm-6 mb-3 mb-sm-0">
-                <input type="text" class="form-control form-control-user" name="name" placeholder="First Name">
-              </div>
-              <div class="col-sm-6">
-                <input type="text" class="form-control form-control-user" name="lastName" placeholder="Last Name">
-              </div>
-            </div>
-            <div class="form-group">
-              <input type="text" class="form-control form-control-user" name="sex" placeholder="Sex">
-            </div>
-            <input type="submit" class="btn btn-primary btn-user btn-block" value="Next">
+			<table class="table table-bordered">
+          	<tr>
+          		<th>HORARIO</th>
+          		<th>LUNES</th>
+          		<th>MARTES</th>
+          		<th>MIERCOLES</th>
+          		<th>JUEVES</th>
+          		<th>VIERNES</th>
+          	</tr>
+          	<tr>
+          		<th>TOTAL SEMANAL HRS:</th>
+          		<th> <textarea class="form-control form-control-user" name="cursos_lunes"></textarea></th>
+          		<th> <textarea class="form-control form-control-user" name="cursos_martes"></textarea></th>
+          		<th> <textarea class="form-control form-control-user" name="cursos_miercoles"></textarea></th>
+          		<th> <textarea class="form-control form-control-user" name="cursos_jueves"></textarea></th>
+          		<th> <textarea class="form-control form-control-user" name="cursos_viernes"></textarea></th>
+          	</tr>
+          	<tr>
+          		<th>TIPO DE CLASE</th>
+          		<th> <input class="form-control form-control-user" type="text" name="tipo_clase_lunes"></th>
+          		<th> <input class="form-control form-control-user" type="text" name="tipo_clase_martes"></th>
+          		<th> <input class="form-control form-control-user" type="text" name="tipo_clase_miercoles"></th>
+          		<th> <input class="form-control form-control-user" type="text" name="tipo_clase_jueves"></th>
+          		<th> <input class="form-control form-control-user" type="text" name="tipo_clase_viernes"></th>
+          	</tr>
+          	<tr>
+          		<th>GRUPO</th>
+          		<th> <input class="form-control form-control-user" type="text" name="grupo_lunes"> </th>
+          		<th> <input class="form-control form-control-user" type="text" name="grupo_martes"> </th>
+          		<th> <input class="form-control form-control-user" type="text" name="grupo_miercoles"> </th>
+          		<th> <input class="form-control form-control-user" type="text" name="grupo_jueves"> </th>
+          		<th> <input class="form-control form-control-user" type="text" name="grupo_viernes"> </th>
+          	</tr>
+          </table>
+		  </div>
+              <input type="text" name="docente_name" id="docente_name" hidden="false">
+            <input type="submit" class="btn btn-primary btn-user btn-block" value="Next" onclick="refreshDocente_name()">
           </form>
+         
           <hr>
         </div>
         <!-- /.container-fluid -->

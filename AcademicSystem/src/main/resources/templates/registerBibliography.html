@@ -333,121 +333,22 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Register Cronograma</h1>
-          
-          <form role="form" action="/registerCronograma" method="post">
-          	<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <thead>
-                    <tr>
-                      <th>Semana</th>
-                      <th>Tema-Evaluacion</th>
-                      <th>Avance</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                      <tr>
-                      <tr>
-                        <td th:text="1"/>
-                        <td><input type="text" name="te1"></td>
-                        <td><input type="text" name="av1"></td>
-                      </tr>
-                      <tr>
-                        <td th:text="2"/>
-                        <td><input type="text" name="te2"></td>
-                        <td><input type="text" name="av2"></td>
-                      </tr>
-                      <tr>
-                        <td th:text="3"/>
-                        <td><input type="text" name="te3"></td>
-                        <td><input type="text" name="av3"></td>
-                      </tr>
-                      <tr>
-                        <td th:text="4"/>
-                        <td><input type="text" name="te4"></td>
-                        <td><input type="text" name="av4"></td>
-                      </tr>
-                      <tr>
-                        <td th:text="5"/>
-                        <td><input type="text" name="te5"></td>
-                        <td><input type="text" name="av5"></td>
-                      </tr>
-                      <tr>
-                        <td th:text="6"/>
-                        <td><input type="text" name="te6"></td>
-                        <td><input type="text" name="av6"></td>
-                      </tr>
-                      <tr>
-                        <td th:text="7"/>
-                        <td><input type="text" name="te7"></td>
-                        <td><input type="text" name="av7"></td>
-                      </tr>
-                      <tr>
-                        <td th:text="8"/>
-                        <td><input type="text" name="te8"></td>
-                        <td><input type="text" name="av8"></td>
-                      </tr>
-                      <tr>
-                        <td th:text="9"/>
-                        <td><input type="text" name="te9"></td>
-                        <td><input type="text" name="av9"></td>
-                      </tr>
-                      <tr>
-                        <td th:text="10"/>
-                        <td><input type="text" name="te10"></td>
-                        <td><input type="text" name="av10"></td>
-                      </tr>
-                      <tr>
-                        <td th:text="11"/>
-                        <td><input type="text" name="te11"></td>
-                        <td><input type="text" name="av11"></td>
-                      </tr>
-                      <tr>
-                        <td th:text="12"/>
-                        <td><input type="text" name="te12"></td>
-                        <td><input type="text" name="av12"></td>
-                      </tr>
-                      <tr>
-                        <td th:text="13"/>
-                        <td><input type="text" name="te13"></td>
-                        <td><input type="text" name="av13"></td>
-                      </tr>
-                      <tr>
-                        <td th:text="14"/>
-                        <td><input type="text" name="te14"></td>
-                        <td><input type="text" name="av14"></td>
-                      </tr>
-                      <tr>
-                        <td th:text="15"/>
-                        <td><input type="text" name="te15"></td>
-                        <td><input type="text" name="av15"></td>
-                      </tr>
-                      <tr>
-                        <td th:text="16"/>
-                        <td><input type="text" name="te16"></td>
-                        <td><input type="text" name="av16"></td>
-                      </tr>
-                      <tr>
-                        <td th:text="17"/>
-                        <td><input type="text" name="te17"></td>
-                        <td><input type="text" name="av17"></td>
-                      </tr>
-                      <tr>
-                        <td th:text="18"/>
-                        <td><input type="text" name="te18"></td>
-                        <td><input type="text" name="av18"></td>
-                      </tr>
-                      <tr>
-                        <td th:text="19"/>
-                        <td><input type="text" name="te19"></td>
-                        <td><input type="text" name="av19"></td>
-                      </tr>
-                      <tr>
-                        <td th:text="20"/>
-                        <td><input type="text" name="te20"></td>
-                        <td><input type="text" name="av20"></td>
-                      </tr>
-                  </tbody>
-                </table>
+          <h1 class="h3 mb-4 text-gray-800">AÑADIR BIBLIOGRAFIA</h1>
+
+          <form role="form" action="/registerBibliography" method="post">
+              <input type="text" name="tipo">
+	          <input type="text" name="nombre">
+	          <input type="text" name="autor">
+	          <input type="text" name="fecha">
+	          <input type="text" name="editorial">
+	           <input type="text" name="edicion">
+			<table border="0" align="center">
+				<tr>
+					<td><input type="submit" value="Agregar" name="agregar"></td>	
+				</tr>
+			</table>
+		</form>
+		<form role="form" action="/registerBibliographyNext" method="post">
 			<table border="0" align="center">
 				<tr>
 					<td><input type="submit" value="Agregar" name="agregar"></td>	

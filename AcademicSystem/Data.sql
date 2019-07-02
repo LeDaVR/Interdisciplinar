@@ -74,8 +74,8 @@ insert into asignatura
 
 insert into silabo values
 	(0,1704143,7,'Primera unidad: Desarrollo historico de lenguajes de programacion.Segunda unidad:Paradigma imperativo.Tercera unidad: Paradigma declarativo.Cuarta unidad:Disenio',
-     'Heteroevaluacion', 'Practicas y laboratorio','Trabajo de implementacion', 'Proyecto y exposicion','Presentar trabajos'),
-	(1,1702120,3,'Primera unidad: analisis de problemas  eingenieria de requisitos ciencia de la computacion en la solucion de problemas.Segunda Unidad: introduccion al disenio de arquitecturas tecnologicas y base de datos.Tercera Unidad: Desarrollo rapido de aplicaciones (RAD) y propuesta de solucion.','Heteroevaluacion','avance de proyecto','examenes','proyectos y exposiciones','presentar todos los trabajos');
+     'Heteroevaluacion', 'Practicas y laboratorio','Trabajo de implementacion', 'Proyecto y exposicion','Presentar trabajos',''),
+	(1,1702120,3,'Primera unidad: analisis de problemas  eingenieria de requisitos ciencia de la computacion en la solucion de problemas.Segunda Unidad: introduccion al disenio de arquitecturas tecnologicas y base de datos.Tercera Unidad: Desarrollo rapido de aplicaciones (RAD) y propuesta de solucion.','Heteroevaluacion','avance de proyecto','examenes','proyectos y exposiciones','presentar todos los trabajos','');
 
 
 

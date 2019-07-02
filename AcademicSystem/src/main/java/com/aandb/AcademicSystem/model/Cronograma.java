@@ -4,11 +4,15 @@ public class Cronograma {
 	int id;
 	int id_silabo;
 	String semana;
+	String tema_evaluacion;
+	int avance;
 	
 	public Cronograma() {}
-	public Cronograma(int id_silabo, String semana) {
+	public Cronograma(int id_silabo, String semana,String tema_evaluacion,int avance) {
 		this.id_silabo = id_silabo;
 		this.semana = semana;
+		this.tema_evaluacion=tema_evaluacion;
+		this.avance=avance;
 	}
 	
 	public int getId() {
@@ -28,6 +32,18 @@ public class Cronograma {
 	}
 	public void setSemana(String semana) {
 		this.semana = semana;
+	}
+	public String getTema_evaluacion() {
+		return tema_evaluacion;
+	}
+	public void setTema_evaluacion(String tema_evaluacion) {
+		this.tema_evaluacion = tema_evaluacion;
+	}
+	public int getAvance() {
+		return avance;
+	}
+	public void setAvance(int avance) {
+		this.avance = avance;
 	}
 	
 	
