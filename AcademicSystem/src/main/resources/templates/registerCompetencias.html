@@ -343,32 +343,44 @@
         
           <!-- Page Heading -->
           <h1 class="h3 mb-4 text-gray-800">Register Silabus</h1>
-          <div class="text-center">
-            <h1 class="h4 text-gray-900 mb-4">Añadir Competencias</h1>
-          </div>
           <div class="form-group row">
-          <form class="user" action="/registerCompetencias" method="post">
-         	<textarea rows="4" cols="50" name="nombre"></textarea>
-            <input type="submit" class="btn btn-primary btn-user btn-block" value="AÑADIR COMPETENCIA">
-          </form>
+          <div class="col-sm-6 mb-3 mb-sm-0">
+	          <div class="card shadow mb-4">
+		          <div class="card-header py-3">
+		          	<h6 class="m-0 font-weight-bold text-primary">Añadir Competencias</h6>
+		          </div>
+		          <div class="card-body">
+		          <form class="user" action="/registerCompetencias" method="post">
+		         	<textarea class="form-control form-control-user"  placeholder="Competence" rows="4" cols="50" name="nombre"></textarea><br>
+		            <input type="submit" class="btn btn-primary btn-user btn-block" value="AÑADIR COMPETENCIA">
+		          </form>
+		          </div>
+	          </div>
           </div>
-          <br>
-          <form class="user" action="/addResult" method="post">
-          <div class="form-group row">
-          <select class="btn btn-danger btn-icon-split" id="listcompetencias" th:field="*{competencias}">
-         		<option class="form-control form-control-user" value=""> Please select a Competence ... </option>
-   				<option  class="form-control form-control-user" th:each="competence : ${competencias}" th:value="${competence.id}" th:text="${competence.nombre}" />
-			</select>
-			<select class="btn btn-danger btn-icon-split" id="listresultados" th:field="*{resultados}">
-         		<option class="form-control form-control-user" value=""> Please select a Result ... </option>
-   				<option  class="form-control form-control-user" th:each="result : ${resultados}" th:value="${result.id}" th:text="${result.descripcion}" />
-			</select>
+          <div class="col-sm-6">
+          <div class="card shadow mb-4">
+          	<div class="card-header py-3">
+		          	<h6 class="m-0 font-weight-bold text-primary">Competencia-Resultado</h6>
+		    </div>
+		    <div class="card-body">
+		          <form class="user" action="/addResult" method="post">
+		          <select class="btn btn-info btn-icon-split" id="listcompetencias" th:field="*{competencias}">
+		         		<option class="form-control form-control-user" value=""> Please select a Competence ... </option>
+		   				<option  class="form-control form-control-user" th:each="competence : ${competencias}" th:value="${competence.id}" th:text="${competence.nombre}" />
+					</select>
+					<select class="btn btn-info btn-icon-split" id="listresultados" th:field="*{resultados}">
+		         		<option class="form-control form-control-user" value=""> Please select a Result ... </option>
+		   				<option  class="form-control form-control-user" th:each="result : ${resultados}" th:value="${result.id}" th:text="${result.descripcion}" />
+					</select><br>
+					<input type="text" class="form-control form-control-user" id="competencia" name="competencia" hidden="false">
+					<input type="text" class="form-control form-control-user" id="resultado" name="resultado" hidden="false">
+					<br><input type="text" class="form-control form-control-user" name="nivel" placeholder="Nivel"><br>
+					<input type="submit" class="btn btn-primary btn-user btn-block" value="AÑADIR RESULTADO" onclick="refresh()">
+				</form>
 			</div>
-			<input type="text" class="form-control form-control-user" id="competencia" name="competencia" hidden="false">
-			<input type="text" class="form-control form-control-user" id="resultado" name="resultado" hidden="false">
-			<input type="text" class="form-control form-control-user" name="nivel" placeholder="Nivel">
-			<input type="submit" class="btn btn-primary btn-user btn-block" value="AÑADIR RESULTADO" onclick="refresh()">
-		</form>
+		</div>
+		</div>
+		</div>
         <form class="user" action="/registerCompetenciasNext" method="post">
           	<input type="submit" class="btn btn-primary btn-user btn-block" value="Next">
         </form>

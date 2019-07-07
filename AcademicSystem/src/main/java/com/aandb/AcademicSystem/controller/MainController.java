@@ -216,7 +216,7 @@ public class MainController
     	return "registerSchedule";
 	}
     
-    //return "redirect:index.html";
+
     @RequestMapping(method = {RequestMethod.POST, RequestMethod.GET}, value = "/registerCronograma")
     public String registerCronograma(Model model,@RequestParam(name = "te1") String te1,@RequestParam(name = "te2") String te2,
     		@RequestParam(name = "te3") String te3,@RequestParam(name = "te4") String te4,@RequestParam(name = "te5") String te5,
@@ -323,5 +323,12 @@ public class MainController
     	Application.silabo_bibliografiaDAO.insert(silabo_bibliografia);
     	
         return "registerBibliography";
+    }
+
+    @RequestMapping(method = {RequestMethod.POST, RequestMethod.GET}, value = "/registerBibliographyNext")
+    public String registerBibliographyNext() throws SQLException
+    {
+    	
+    	return "redirect:index.html";
     }
 }

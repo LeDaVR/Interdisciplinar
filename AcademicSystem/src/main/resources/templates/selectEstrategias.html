@@ -341,23 +341,31 @@
         
           <!-- Page Heading -->
           <h1 class="h3 mb-4 text-gray-800">Register Silabus</h1>
+          
+          <div class="card shadow mb-4">
           <div class="text-center">
-            <h1 class="h4 text-gray-900 mb-4">Añadir Estrategias de Enseñanza</h1>
+          	<div class="card-header py-3">
+            	<h1 class="m-0 font-weight-bold text-primary">Añadir Estrategias de Enseñanza</h1>
+          	</div>
           </div>
-          <form class="user" action="/registerEstrategy" method="post">
-			<select class="btn btn-danger btn-icon-split" id="list" th:field="*{estrategias}">
-         		<option class="form-control form-control-user" value=""> Please select a Strategy ... </option>
-   				<option  class="form-control form-control-user" th:each="strategy : ${estrategias}" th:value="${strategy.id}" th:text="${strategy.tipo}" />
-			</select>
-			<textarea name="descripcion"></textarea>
-			<input type="text" name="selected" id="selected" hidden="false"> 
-			<input type="submit" class="btn btn-primary btn-user btn-block" value="AÑADIR ESTRATEGIA" onclick="refresh()">
-          </form>
-          <br>
-          <form class="user" action="/registerEstrategyNext" method="post">
-          	<input type="submit" class="btn btn-primary btn-user btn-block" value="Next">
-          </form>
-         
+          	<div class="card-body">
+		          <form class="user" action="/registerEstrategy" method="post">
+		          <div class="text-center">
+					<select class="btn btn-danger btn-icon-split" id="list" th:field="*{estrategias}">
+		         		<option class="form-control form-control-user" value=""> Please select a Strategy ... </option>
+		   				<option  class="form-control form-control-user" th:each="strategy : ${estrategias}" th:value="${strategy.id}" th:text="${strategy.tipo}" />
+					</select>
+					</div>
+					<br><textarea class="form-control form-control-user" rows="4" cols="50" name="descripcion" placeholder="Descripcion"></textarea><br>
+					<input type="text" name="selected" id="selected" hidden="false"> 
+					<input type="submit" class="btn btn-primary btn-user btn-block" value="AÑADIR ESTRATEGIA" onclick="refresh()">
+		          </form>
+		          <br>
+		          <form class="user" action="/registerEstrategyNext" method="post">
+		          	<input type="submit" class="btn btn-primary btn-user btn-block" value="Next">
+		          </form>
+	        </div>
+         </div>
           <hr>
         </div>
         <!-- /.container-fluid -->

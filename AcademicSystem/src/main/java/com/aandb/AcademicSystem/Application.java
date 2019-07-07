@@ -44,6 +44,7 @@ public class Application
     public static Silabo_EstrategiaDAO silabo_estrategiaDAO;
     public static BibliographyDAO bibliographyDAO;
     public static Silabo_BibliografiaDAO silabo_bibliografiaDAO;
+    
     public static void main(String[] args)
     {
         String jdbcURL = "jdbc:mysql://localhost:3306/academicSystemDB";

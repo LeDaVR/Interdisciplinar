@@ -29,7 +29,7 @@ public class Competencia_ResultadosDAO {
         
         while(resultSet.next())
         {
-            nextId = resultSet.getInt("id");
+            nextId = resultSet.getInt("idcompetencias-resultados");
         }
     	
         statement_id.close();

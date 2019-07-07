@@ -336,9 +336,27 @@
           <h1 class="h3 mb-4 text-gray-800">ESTRATEGIAS DE EVALUACION</h1>
           
           <form role="form" action="/registerEstrategiaEvaluacion" method="post">
-	          <input type="text" name="evcontinua">
-	          <input type="text" name="evperiodica">
-	          <p1>CRONOGRAMA DE EVALUACION</p1>
+          <div class="card shadow mb-4">
+          <div class="card-header py-3">
+	          	<h6 class="m-0 font-weight-bold text-primary">EVALUACION CONTINUA</h6>
+	      </div>
+	      <div class="card-body">
+	          <textarea class="form-control form-control-user" rows="2" cols="80" name="evcontinua"></textarea>
+	      </div>
+	      </div>
+	      <div class="card shadow mb-4">
+	      <div class="card-header py-3">
+	          	<h6 class="m-0 font-weight-bold text-primary">EVALUACION PERIODICA</h6>
+	      </div>
+	      <div class="card-body">
+	          <textarea class="form-control form-control-user" rows="3" cols="80" name="evperiodica"></textarea>
+	      </div>
+	      </div>
+	          <div class="card shadow mb-4">
+	          <div class="card-header py-3">
+	          	<h6 class="m-0 font-weight-bold text-primary">CRONOGRAMA DE EVALUACION</h6>
+	          </div>
+	          <div class="card-body">
 	          <table>
 	          	<tr>
 	          		<th>EVALUACION</th>
@@ -348,25 +366,41 @@
 	          	</tr>
 	          	<tr>
 	          		<th>Evaluacion Parcial</th>
-	          		<th><input type="text" name="fecha1"></th>
-	          		<th><input type="text" name="et1"></th>
-	          		<th><input type="text" name="ec1"></th>
+	          		<th><input class="form-control form-control-user" type="text" name="fecha1"></th>
+	          		<th><input class="form-control form-control-user" type="text" name="et1"></th>
+	          		<th><input class="form-control form-control-user" type="text" name="ec1"></th>
 	          	</tr>
 	          	<tr>
 	          		<th>Evaluacion Parcial</th>
-	          		<th><input type="text" name="fecha2"></th>
-	          		<th><input type="text" name="et2"></th>
-	          		<th><input type="text" name="ec2"></th>
+	          		<th><input class="form-control form-control-user" type="text" name="fecha2"></th>
+	          		<th><input class="form-control form-control-user" type="text" name="et2"></th>
+	          		<th><input class="form-control form-control-user" type="text" name="ec2"></th>
 	          	</tr>
 	          	<tr>
 	          		<th>Evaluacion Final</th>
-	          		<th><input type="text" name="fecha3"></th>
-	          		<th><input type="text" name="et3"></th>
-	          		<th><input type="text" name="ec3"></th>
+	          		<th><input class="form-control form-control-user" type="text" name="fecha3"></th>
+	          		<th><input class="form-control form-control-user" type="text" name="et3"></th>
+	          		<th><input class="form-control form-control-user" type="text" name="ec3"></th>
 	          	</tr>
 	          </table>
-	          <input type="text" name="tipo_evaluacion">
-	          <input type="text" name="instrumento_evaluacion">
+	          </div>
+	          </div>
+	         <div class="card shadow mb-4">
+	         <div class="card-header py-3">
+	          	<h6 class="m-0 font-weight-bold text-primary">TIPO DE EVALUACION</h6>
+	         </div>
+	         <div class="card-body">
+	          <textarea class="form-control form-control-user" rows="2" cols="80" name="tipo_evaluacion"></textarea>
+	         </div>
+	         </div>
+	         <div class="card shadow mb-4">
+	         <div class="card-header py-3">
+	          	<h6 class="m-0 font-weight-bold text-primary">INSTRUMENTOS DE EVALUACION</h6>
+	         </div>
+	         <div class="card-body">
+	          <textarea class="form-control form-control-user" rows="2" cols="80" name="instrumento_evaluacion"></textarea>
+	         </div>
+	         </div>
 			<table border="0" align="center">
 				<tr>
 					<td><input type="submit" value="Agregar" name="agregar"></td>	

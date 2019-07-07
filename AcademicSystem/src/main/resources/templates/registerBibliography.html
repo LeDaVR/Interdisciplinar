@@ -336,24 +336,62 @@
           <h1 class="h3 mb-4 text-gray-800">AÑADIR BIBLIOGRAFIA</h1>
 
           <form role="form" action="/registerBibliography" method="post">
-              <input type="text" name="tipo">
-	          <input type="text" name="nombre">
-	          <input type="text" name="autor">
-	          <input type="text" name="fecha">
-	          <input type="text" name="editorial">
-	           <input type="text" name="edicion">
-			<table border="0" align="center">
-				<tr>
-					<td><input type="submit" value="Agregar" name="agregar"></td>	
-				</tr>
-			</table>
+	         <div class="card shadow mb-4">
+	         <div class="card-header py-3">
+	          	<h6 class="m-0 font-weight-bold text-primary">Tipo</h6>
+	         </div>
+	         <div class="card-body">
+              <input class="form-control form-control-user" type="text" name="tipo" placeholder="Tipo">
+             </div>
+             </div>
+             <div class="card shadow mb-4">
+	         <div class="card-header py-3">
+	          	<h6 class="m-0 font-weight-bold text-primary">Nombre</h6>
+	         </div>
+	         <div class="card-body">
+	          <input class="form-control form-control-user" type="text" name="nombre" placeholder="Nombre">
+	         </div>
+	         </div>
+	         <div class="card shadow mb-4">
+	         <div class="card-header py-3">
+	          	<h6 class="m-0 font-weight-bold text-primary">Autor</h6>
+	         </div>
+	         <div class="card-body">
+	          <input class="form-control form-control-user" type="text" name="autor" placeholder="Autor" >
+	         </div>
+	         </div>
+	         <div class="card shadow mb-4">
+	         <div class="card-header py-3">
+	          	<h6 class="m-0 font-weight-bold text-primary">Fecha</h6>
+	         </div>
+	         <div class="card-body">
+	          <input class="form-control form-control-user" type="text" name="fecha" placeholder="Fecha">
+	         </div>
+	         </div>
+	         <div class="card shadow mb-4">
+	         <div class="card-header py-3">
+	          	<h6 class="m-0 font-weight-bold text-primary">Editorial</h6>
+	         </div>
+	         <div class="card-body">
+	          <input class="form-control form-control-user" type="text" name="editorial" placeholder="Editorial" >
+	         </div>
+	         </div>
+	         <div class="card shadow mb-4">
+	         <div class="card-header py-3">
+	          	<h6 class="m-0 font-weight-bold text-primary">Edicion</h6>
+	         </div>
+	         <div class="card-body">
+	          <input class="form-control form-control-user" type="text" name="edicion" placeholder="Edicion">
+	         </div>
+	         </div>
+			<div class="text-center">
+					<input type="submit" class="btn btn-primary btn-user btn-block" value="Agregar Bibliografia" name="agregar"><br>
+			</div>
 		</form>
 		<form role="form" action="/registerBibliographyNext" method="post">
-			<table border="0" align="center">
-				<tr>
-					<td><input type="submit" value="Agregar" name="agregar"></td>	
-				</tr>
-			</table>
+			<div class="text-center">
+					<input type="submit" class="btn btn-primary btn-user btn-block" value="Terminar" name="agregar">
+			</div>
 		</form>
 
         </div>

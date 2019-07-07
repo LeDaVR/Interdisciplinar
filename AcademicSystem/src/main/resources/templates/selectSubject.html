@@ -343,13 +343,11 @@
             <h1 class="h4 text-gray-900 mb-4">Subject Information</h1>
           </div>
           <form class="user" action="/selectSubject" method="post" >
-          <div class="text-center">
+          <div class="form-group row">
           	<select class="btn btn-info btn-icon-split" id="list" th:field="*{subjects}">
          		<option class="form-control form-control-user" value=""> Please select a subject ... </option>
    				<option  class="form-control form-control-user" th:each="subject : ${subjects}" th:value="${subject.name}" th:text="${subject.name}" />
 			</select>
-		  </div>
-		  <div class="text-center">
 		  <div class="col-sm-6">
                 <input type="text" class="form-control form-control-user" name="periodo_academico" placeholder="Periodo Academico">
           </div>
