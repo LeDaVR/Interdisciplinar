@@ -79,6 +79,7 @@ public class SilabusDAO {
         
         while(resultSet.next())
         {
+        	int id = resultSet.getInt("id");
             int id_asignatura = resultSet.getInt("id_asignatura");
             String contenido = resultSet.getString("contenido");
             String semestre = resultSet.getString("semestre");
@@ -99,6 +100,7 @@ public class SilabusDAO {
             String FECHA_EP3 = resultSet.getString("FECHA_EP3");
             
             Silabus silabo = new Silabus();
+            silabo.setId(id);
             silabo.setId_asignatura(id_asignatura);
             silabo.setContenido(contenido);
             silabo.setSemestre(semestre);

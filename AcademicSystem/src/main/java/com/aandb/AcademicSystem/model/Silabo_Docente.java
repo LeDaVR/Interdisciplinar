@@ -5,7 +5,9 @@ public class Silabo_Docente {
 	int id_docente;
 	int id_silabo;
 	
-	public Silabo_Docente() {}
+	public Silabo_Docente() {
+		
+	}
 	
 	public Silabo_Docente(int id_docente, int id_silabo) {
 

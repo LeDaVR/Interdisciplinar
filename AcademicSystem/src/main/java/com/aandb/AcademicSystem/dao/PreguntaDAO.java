@@ -9,21 +9,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.aandb.AcademicSystem.model.DBConnection;
-import com.aandb.AcademicSystem.model.Departamento_Academico;
+import com.aandb.AcademicSystem.model.Pregunta;
 
-public class Departamento_AcademicoDAO {
+public class PreguntaDAO {
 	private DBConnection dbConnection;
     private Connection connection;
 
-    public Departamento_AcademicoDAO(String jdbcURL, String jdbcUsername, String jdbcPassword) throws SQLException
+    public PreguntaDAO(String jdbcURL, String jdbcUsername, String jdbcPassword) throws SQLException
     {
         dbConnection = new DBConnection(jdbcURL, jdbcUsername, jdbcPassword);
     }
     
-    public boolean insert(Departamento_Academico departamento_academico) throws SQLException
+    public boolean insert(Pregunta pregunta) throws SQLException
     {
     	int nextId=0;
-    	String sql_id = "SELECT * FROM `departamento-academico`";
+    	String sql_id = "SELECT * FROM preguntas";
         dbConnection.connect();
         connection = dbConnection.getJdbcConnection();
         Statement statement_id = connection.createStatement();
@@ -33,28 +33,26 @@ public class Departamento_AcademicoDAO {
         {
             nextId = resultSet.getInt("id");
         }
-    	
-        statement_id.close();
-        dbConnection.disconnect();
         
-        String sql = "INSERT INTO `departamento-academico` VALUES (?, ?, ?)";
+    	String sql = "INSERT INTO preguntas VALUES (?, ?, ?, ?)";
         dbConnection.connect();
         connection = dbConnection.getJdbcConnection();
         PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setInt(1,nextId+1);
-        statement.setString(2, departamento_academico.getName());
-        statement.setString(3, departamento_academico.getName());
-
+        statement.setInt(1, nextId+1);
+        statement.setString(2, pregunta.getDescripcion());
+        statement.setString(3, pregunta.getRespuesta());
+        statement.setInt(4, pregunta.getId_evaluacion());
+        
         boolean rowInserted = statement.executeUpdate() > 0;
         statement.close();
         dbConnection.disconnect();
         return rowInserted;
     }
     
-    public List<Departamento_Academico> listDepartamentos() throws SQLException
+    public List<Pregunta> listPreguntas() throws SQLException
     {
-        List<Departamento_Academico> listDepartamentos = new ArrayList<Departamento_Academico>();
-        String sql = "SELECT * FROM `departamento-academico`";
+        List<Pregunta> listPreguntas = new ArrayList<Pregunta>();
+        String sql = "SELECT * FROM preguntas";
         dbConnection.connect();
         connection = dbConnection.getJdbcConnection();
         Statement statement = connection.createStatement();
@@ -63,16 +61,20 @@ public class Departamento_AcademicoDAO {
         while(resultSet.next())
         {
             int id = resultSet.getInt("id");
-            String name = resultSet.getString("nombre");
+            int idevaluacion = resultSet.getInt("idevaluacion");
+            String descripcion = resultSet.getString("descripcion");
+            String respuesta = resultSet.getString("respuesta");
             
-            Departamento_Academico dep = new Departamento_Academico();
-            dep.setId(id);
-            dep.setName(name);
-           
-            listDepartamentos.add(dep);
+            Pregunta pregunta = new Pregunta();
+            pregunta.setId(id);
+            pregunta.setId_evaluacion(idevaluacion);
+            pregunta.setDescripcion(descripcion);
+            pregunta.setRespuesta(respuesta);
+            
+            listPreguntas.add(pregunta);
         }
         
         dbConnection.disconnect();
-        return listDepartamentos;
+        return listPreguntas;
     }
 }

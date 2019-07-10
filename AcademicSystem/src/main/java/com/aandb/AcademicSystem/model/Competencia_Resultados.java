@@ -6,7 +6,9 @@ public class Competencia_Resultados {
 	int resultados_id;
 	int nivel;
 	
-	public Competencia_Resultados() {}
+	public Competencia_Resultados() {
+		nivel=0;
+	}
 	
 	public Competencia_Resultados(int competencias_id, int resultados_id, int nivel) {
 		this.competencias_id = competencias_id;

@@ -4,7 +4,9 @@ public class Resultados {
 	private int id;
 	private String descripcion;
 	
-	public Resultados() {}
+	public Resultados() {
+		descripcion="descripcion";
+	}
 	public Resultados(String descripcion) {
 		this.descripcion = descripcion;
 	}

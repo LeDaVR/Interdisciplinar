@@ -7,7 +7,11 @@ public class Cronograma {
 	String tema_evaluacion;
 	int avance;
 	
-	public Cronograma() {}
+	public Cronograma() {
+		semana="semana";
+		tema_evaluacion="tema - evaluacion";
+		avance=0;
+	}
 	public Cronograma(int id_silabo, String semana,String tema_evaluacion,int avance) {
 		this.id_silabo = id_silabo;
 		this.semana = semana;

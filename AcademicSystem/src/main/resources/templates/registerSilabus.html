@@ -20,8 +20,36 @@
 		function refreshDocente_name(){
 			var docente=document.getElementById("list");
 			document.getElementById("docente_name").value=docente.options[docente.selectedIndex].value;
+			if(docente.options[docente.selectedIndex].value=="")
+				return false;
+			else
+				return true;
 		}
 	</script>
+<style> 
+input[type=text] {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: .8rem;
+  background-color: white;
+ 
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  padding: 12px 5px 12px 5px;
+}
+textarea {
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color:white;
+  resize: none;
+}
+</style>
 </head>
 
 <body id="page-top">
@@ -349,7 +377,8 @@
           	<select class="btn btn-danger btn-icon-split" id="list" th:field="*{teachers}">
          		<option class="form-control form-control-user" value=""> Please select a Teacher ... </option>
    				<option  class="form-control form-control-user" th:each="teacher : ${teachers}" th:value="${teacher.nombre}" th:text="${teacher.nombre}" />
-			</select>
+			</select><br>
+			
 			<table class="table table-bordered">
           	<tr>
           		<th>HORARIO</th>
@@ -360,33 +389,34 @@
           		<th>VIERNES</th>
           	</tr>
           	<tr>
+          	
           		<th>TOTAL SEMANAL HRS:</th>
-          		<th> <textarea class="form-control form-control-user" name="cursos_lunes"></textarea></th>
-          		<th> <textarea class="form-control form-control-user" name="cursos_martes"></textarea></th>
-          		<th> <textarea class="form-control form-control-user" name="cursos_miercoles"></textarea></th>
-          		<th> <textarea class="form-control form-control-user" name="cursos_jueves"></textarea></th>
-          		<th> <textarea class="form-control form-control-user" name="cursos_viernes"></textarea></th>
+          		<th><textarea  name="cursos_lunes"></textarea></th>
+          		<th> <textarea name="cursos_martes"></textarea></th>
+          		<th> <textarea name="cursos_miercoles"></textarea></th>
+          		<th> <textarea name="cursos_jueves"></textarea></th>
+          		<th> <textarea name="cursos_viernes"></textarea></th>
           	</tr>
           	<tr>
           		<th>TIPO DE CLASE</th>
-          		<th> <input class="form-control form-control-user" type="text" name="tipo_clase_lunes"></th>
-          		<th> <input class="form-control form-control-user" type="text" name="tipo_clase_martes"></th>
-          		<th> <input class="form-control form-control-user" type="text" name="tipo_clase_miercoles"></th>
-          		<th> <input class="form-control form-control-user" type="text" name="tipo_clase_jueves"></th>
-          		<th> <input class="form-control form-control-user" type="text" name="tipo_clase_viernes"></th>
+          		<th> <input  type="text" name="tipo_clase_lunes"></th>
+          		<th> <input  type="text" name="tipo_clase_martes"></th>
+          		<th> <input  type="text" name="tipo_clase_miercoles"></th>
+          		<th> <input  type="text" name="tipo_clase_jueves"></th>
+          		<th> <input  type="text" name="tipo_clase_viernes"></th>
           	</tr>
           	<tr>
           		<th>GRUPO</th>
-          		<th> <input class="form-control form-control-user" type="text" name="grupo_lunes"> </th>
-          		<th> <input class="form-control form-control-user" type="text" name="grupo_martes"> </th>
-          		<th> <input class="form-control form-control-user" type="text" name="grupo_miercoles"> </th>
-          		<th> <input class="form-control form-control-user" type="text" name="grupo_jueves"> </th>
-          		<th> <input class="form-control form-control-user" type="text" name="grupo_viernes"> </th>
+          		<th> <input  type="text" name="grupo_lunes"> </th>
+          		<th> <input  type="text" name="grupo_martes"> </th>
+          		<th> <input  type="text" name="grupo_miercoles"> </th>
+          		<th> <input  type="text" name="grupo_jueves"> </th>
+          		<th> <input  type="text" name="grupo_viernes"> </th>
           	</tr>
           </table>
 		  </div>
               <input type="text" name="docente_name" id="docente_name" hidden="false">
-            <input type="submit" class="btn btn-primary btn-user btn-block" value="Next" onclick="refreshDocente_name()">
+            <input type="submit" class="btn btn-primary btn-user btn-block" value="Next" onclick="return refreshDocente_name();">
           </form>
          
           <hr>

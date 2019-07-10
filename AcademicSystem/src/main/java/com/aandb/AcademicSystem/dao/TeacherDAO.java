@@ -24,16 +24,32 @@ public class TeacherDAO {
     
     public boolean insert(Teacher teacher) throws SQLException
     {
-        String sql = "INSERT INTO docentes VALUES (?, ?, ?, ?, ?, ? )";
+    	int nextId=0;
+    	String sql_id = "SELECT * FROM docentes";
+        dbConnection.connect();
+        connection = dbConnection.getJdbcConnection();
+        Statement statement_id = connection.createStatement();
+        ResultSet resultSet = statement_id.executeQuery(sql_id);
+        
+        while(resultSet.next())
+        {
+            nextId = resultSet.getInt("id");
+        }
+    	
+        statement_id.close();
+        dbConnection.disconnect();
+    	
+        String sql = "INSERT INTO docentes VALUES (?, ?, ?, ?, ?, ? , ? )";
         dbConnection.connect();
         connection = dbConnection.getJdbcConnection();
         PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setInt(1, teacher.getId());
+        statement.setInt(1, nextId+1);
         statement.setInt(2, teacher.getDni());
-        statement.setString(5, teacher.getNombre());
-        statement.setString(3, teacher.getGrado_academico());
-        statement.setString(4, teacher.getDocentescol());
-        statement.setInt(6, teacher.getId_departamento_academico());
+        statement.setString(3, teacher.getNombre());
+        statement.setString(4, teacher.getGrado_academico());
+        statement.setInt(5, teacher.getId_departamento_academico());
+        statement.setString(6, teacher.getApellido_materno());
+        statement.setString(7, teacher.getApellido_paterno());
         
         boolean rowInserted = statement.executeUpdate() > 0;
         statement.close();
@@ -55,8 +71,9 @@ public class TeacherDAO {
             int id = resultSet.getInt("id");
             int dni = resultSet.getInt("dni");
             String name = resultSet.getString("nombre");
+            String ap_paterno= resultSet.getString("apellido_paterno");
+            String ap_materno= resultSet.getString("apellido_materno");
             String grado_academico = resultSet.getString("grado_academico");
-            String docentescol = resultSet.getString("docentescol");
             int id_departamento_academico = resultSet.getInt("iddepartamentoacademico");
             
             Teacher teacher = new Teacher();
@@ -64,8 +81,9 @@ public class TeacherDAO {
             teacher.setDni(dni);
             teacher.setNombre(name);
             teacher.setGrado_academico(grado_academico);
-            teacher.setDocentescol(docentescol);
             teacher.setId_departamento_academico(id_departamento_academico);
+            teacher.setApellido_materno(ap_materno);
+            teacher.setApellido_paterno(ap_paterno);
             
             listTeachers.add(teacher);
         }
@@ -89,8 +107,9 @@ public class TeacherDAO {
         	teacher.setId(res.getInt("id"));
         	teacher.setDni(res.getInt("dni"));
         	teacher.setNombre(res.getString("nombre"));
+        	teacher.setApellido_materno("apellido_materno");
+        	teacher.setApellido_paterno("apellido_paterno");
         	teacher.setGrado_academico(res.getString("grado_academico"));
-        	teacher.setDocentescol(res.getString("docentescol"));
         	teacher.setId_departamento_academico(res.getInt("iddepartamentoacademico"));
         }
         res.close();

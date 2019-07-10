@@ -15,7 +15,52 @@
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
+	<script>
+	function autocomplete(){
+		document.getElementById("te1").value="Tema 1";
+		document.getElementById("te2").value="Tema 2";
+		document.getElementById("te3").value="Tema 3";
+		document.getElementById("te4").value="Tema 4";
+		document.getElementById("te5").value="Tema 5";
+		document.getElementById("te6").value="Tema 6";
+		document.getElementById("te7").value="Tema 7";
+		document.getElementById("te8").value="Tema 8";
+		document.getElementById("te9").value="Tema 9";
+		document.getElementById("te10").value="Tema 10";
+		document.getElementById("te11").value="Tema 11";
+		document.getElementById("te12").value="Tema 12";
+		document.getElementById("te13").value="Tema 13";
+		document.getElementById("te14").value="Tema 14";
+		document.getElementById("te15").value="Tema 15";
+		document.getElementById("te16").value="Tema 16";
+		document.getElementById("te17").value="Tema 17";
+		document.getElementById("te18").value="Tema 18";
+		document.getElementById("te19").value="Tema 19";
+		document.getElementById("te20").value="Tema 20";
+		
+		document.getElementById("av1").value="5";
+		document.getElementById("av2").value="10";
+		document.getElementById("av3").value="15";
+		document.getElementById("av4").value="20";
+		document.getElementById("av5").value="25";
+		document.getElementById("av6").value="30";
+		document.getElementById("av7").value="35";
+		document.getElementById("av8").value="40";
+		document.getElementById("av9").value="45";
+		document.getElementById("av10").value="50";
+		document.getElementById("av11").value="55";
+		document.getElementById("av12").value="60";
+		document.getElementById("av13").value="65";
+		document.getElementById("av14").value="70";
+		document.getElementById("av15").value="75";
+		document.getElementById("av16").value="80";
+		document.getElementById("av17").value="85";
+		document.getElementById("av18").value="90";
+		document.getElementById("av19").value="95";
+		document.getElementById("av20").value="100";
+	}
+	
+	</script>
 </head>
 
 <body id="page-top">
@@ -334,8 +379,10 @@
 
           <!-- Page Heading -->
           <h1 class="h3 mb-4 text-gray-800">Register Cronograma</h1>
-          
+		<button   class="table table-bordered" value="AutoComplete" onclick="autocomplete()">AUTOCOMPLETE</button>
+
           <form role="form" action="/registerCronograma" method="post">
+          
           	<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
@@ -348,111 +395,112 @@
                       <tr>
                       <tr>
                         <td th:text="1"/>
-                        <td><input class="form-control form-control-user" type="text" name="te1"></td>
-                        <td><input class="form-control form-control-user" type="text" name="av1"></td>
+                        <td><input class="form-control form-control-user" type="text" name="te1" id="te1"></td>
+                        <td><input class="form-control form-control-user" type="text" name="av1" id="av1"></td>
                       </tr>
                       <tr>
                         <td th:text="2"/>
-                        <td><input class="form-control form-control-user" type="text" name="te2"></td>
-                        <td><input class="form-control form-control-user" type="text" name="av2"></td>
+                        <td><input class="form-control form-control-user" type="text" name="te2" id="te2"></td>
+                        <td><input class="form-control form-control-user" type="text" name="av2" id="av2"></td>
                       </tr>
                       <tr>
                         <td th:text="3"/>
-                        <td><input class="form-control form-control-user" type="text" name="te3"></td>
-                        <td><input class="form-control form-control-user" type="text" name="av3"></td>
+                        <td><input class="form-control form-control-user" type="text" name="te3" id="te3"></td>
+                        <td><input class="form-control form-control-user" type="text" name="av3" id="av3"></td>
                       </tr>
                       <tr>
                         <td th:text="4"/>
-                        <td><input class="form-control form-control-user" type="text" name="te4"></td>
-                        <td><input class="form-control form-control-user" type="text" name="av4"></td>
+                        <td><input class="form-control form-control-user" type="text" name="te4" id="te4"></td>
+                        <td><input class="form-control form-control-user" type="text" name="av4" id="av4"></td>
                       </tr>
                       <tr>
                         <td th:text="5"/>
-                        <td><input class="form-control form-control-user" type="text" name="te5"></td>
-                        <td><input class="form-control form-control-user" type="text" name="av5"></td>
+                        <td><input class="form-control form-control-user" type="text" name="te5" id="te5"></td>
+                        <td><input class="form-control form-control-user" type="text" name="av5" id="av5"></td>
                       </tr>
                       <tr>
                         <td th:text="6"/>
-                        <td><input class="form-control form-control-user" type="text" name="te6"></td>
-                        <td><input class="form-control form-control-user" type="text" name="av6"></td>
+                        <td><input class="form-control form-control-user" type="text" name="te6" id="te6"></td>
+                        <td><input class="form-control form-control-user" type="text" name="av6" id="av6"></td>
                       </tr>
                       <tr>
                         <td th:text="7"/>
-                        <td><input class="form-control form-control-user" type="text" name="te7"></td>
-                        <td><input class="form-control form-control-user" type="text" name="av7"></td>
+                        <td><input class="form-control form-control-user" type="text" name="te7" id="te7" ></td>
+                        <td><input class="form-control form-control-user" type="text" name="av7" id="av7"></td>
                       </tr>
                       <tr>
                         <td th:text="8"/>
-                        <td><input class="form-control form-control-user" type="text" name="te8"></td>
-                        <td><input class="form-control form-control-user" type="text" name="av8"></td>
+                        <td><input class="form-control form-control-user" type="text" name="te8" id="te8"></td>
+                        <td><input class="form-control form-control-user" type="text" name="av8" id="av8" ></td>
                       </tr>
                       <tr>
                         <td th:text="9"/>
-                        <td><input class="form-control form-control-user" type="text" name="te9"></td>
-                        <td><input class="form-control form-control-user" type="text" name="av9"></td>
+                        <td><input class="form-control form-control-user" type="text" name="te9" id="te9"></td>
+                        <td><input class="form-control form-control-user" type="text" name="av9" id="av9"></td>
                       </tr>
                       <tr>
                         <td th:text="10"/>
-                        <td><input class="form-control form-control-user" type="text" name="te10"></td>
-                        <td><input class="form-control form-control-user" type="text" name="av10"></td>
+                        <td><input class="form-control form-control-user" type="text" name="te10" id="te10"></td>
+                        <td><input class="form-control form-control-user" type="text" name="av10" id="av10"></td>
                       </tr>
                       <tr>
                         <td th:text="11"/>
-                        <td><input class="form-control form-control-user" type="text" name="te11"></td>
-                        <td><input class="form-control form-control-user" type="text" name="av11"></td>
+                        <td><input class="form-control form-control-user" type="text" name="te11" id="te11"></td>
+                        <td><input class="form-control form-control-user" type="text" name="av11" id="av11"></td>
                       </tr>
                       <tr>
                         <td th:text="12"/>
-                        <td><input class="form-control form-control-user" type="text" name="te12"></td>
-                        <td><input class="form-control form-control-user" type="text" name="av12"></td>
+                        <td><input class="form-control form-control-user" type="text" name="te12" id="te12"></td>
+                        <td><input class="form-control form-control-user" type="text" name="av12" id="av12"></td>
                       </tr>
                       <tr>
                         <td th:text="13"/>
-                        <td><input class="form-control form-control-user" type="text" name="te13"></td>
-                        <td><input class="form-control form-control-user" type="text" name="av13"></td>
+                        <td><input class="form-control form-control-user" type="text" name="te13" id="te13"></td>
+                        <td><input class="form-control form-control-user" type="text" name="av13" id="av13"></td>
                       </tr>
                       <tr>
                         <td th:text="14"/>
-                        <td><input class="form-control form-control-user" type="text" name="te14"></td>
-                        <td><input class="form-control form-control-user" type="text" name="av14"></td>
+                        <td><input class="form-control form-control-user" type="text" name="te14" id="te14"></td>
+                        <td><input class="form-control form-control-user" type="text" name="av14" id="av14"></td>
                       </tr>
                       <tr>
                         <td th:text="15"/>
-                        <td><input class="form-control form-control-user" type="text" name="te15"></td>
-                        <td><input class="form-control form-control-user" type="text" name="av15"></td>
+                        <td><input class="form-control form-control-user" type="text" name="te15" id="te15"></td>
+                        <td><input class="form-control form-control-user" type="text" name="av15" id="av15"></td>
                       </tr>
                       <tr>
                         <td th:text="16"/>
-                        <td><input class="form-control form-control-user" type="text" name="te16"></td>
-                        <td><input class="form-control form-control-user" type="text" name="av16"></td>
+                        <td><input class="form-control form-control-user" type="text" name="te16" id="te16"></td>
+                        <td><input class="form-control form-control-user" type="text" name="av16" id="av16"></td>
                       </tr>
                       <tr>
                         <td th:text="17"/>
-                        <td><input class="form-control form-control-user" type="text" name="te17"></td>
-                        <td><input class="form-control form-control-user" type="text" name="av17"></td>
+                        <td><input class="form-control form-control-user" type="text" name="te17" id="te17"></td>
+                        <td><input class="form-control form-control-user" type="text" name="av17" id="av17"></td>
                       </tr>
                       <tr>
                         <td th:text="18"/>
-                        <td><input class="form-control form-control-user" type="text" name="te18"></td>
-                        <td><input class="form-control form-control-user" type="text" name="av18"></td>
+                        <td><input class="form-control form-control-user" type="text" name="te18" id="te18"></td>
+                        <td><input class="form-control form-control-user" type="text" name="av18" id="av18"></td>
                       </tr>
                       <tr>
                         <td th:text="19"/>
-                        <td><input class="form-control form-control-user" type="text" name="te19"></td>
-                        <td><input class="form-control form-control-user" type="text" name="av19"></td>
+                        <td><input class="form-control form-control-user" type="text" name="te19" id="te19"></td>
+                        <td><input class="form-control form-control-user" type="text" name="av19" id="av19"></td>
                       </tr>
                       <tr>
                         <td th:text="20"/>
-                        <td><input class="form-control form-control-user" type="text" name="te20"></td>
-                        <td><input class="form-control form-control-user" type="text" name="av20"></td>
+                        <td><input class="form-control form-control-user" type="text" name="te20" id="te20"></td>
+                        <td><input class="form-control form-control-user" type="text" name="av20" id="av20"></td>
                       </tr>
                   </tbody>
                 </table>
+           
 			<div class="text-center">
 					<input  type="submit" class="btn btn-primary btn-user btn-block" value="Next" name="agregar">
 			</div>
 		</form>
-
+		
         </div>
         <!-- /.container-fluid -->
 

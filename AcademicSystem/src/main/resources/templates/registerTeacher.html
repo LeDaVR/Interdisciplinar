@@ -1,6 +1,5 @@
-
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +7,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>UNSA Academic System - Register Silabus</title>
+  <title>UNSA Academic System - Register Student</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -16,41 +15,28 @@
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
+	<script>
 	
-	<script type="text/javascript">
 	function refresh(){
 		var e=document.getElementById("list");
 		document.getElementById('selected').value=e.options[e.selectedIndex].value;
-		if(e.options[e.selectedIndex].value=="")
-			return false;
-		else
-			return true;
 	}
+	
 	</script>
-	<style> 
-input[type=text] {
-  width: 100%;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  font-size: .8rem;
-  background-color: white;
- 
-  background-position: 10px 10px; 
-  background-repeat: no-repeat;
-  padding: 12px 5px 12px 5px;
-}
-textarea {
-  width: 100%;
-  height: 150px;
-  padding: 12px 20px;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  background-color:white;
-  resize: none;
-}
-</style>
+	<style>
+	select{
+		font-size: .8rem;
+    	border-radius: 10rem;
+    	font-weight: 400;
+    	line-height: 1.5;
+    	color: #6e707e;
+    	background-color: #fff;
+    	background-clip: padding-box;
+    	border: 1px solid #d1d3e2;
+	}
+	
+	
+	</style>
 </head>
 
 <body id="page-top">
@@ -143,8 +129,8 @@ textarea {
             <h6 class="collapse-header">Other Pages:</h6>
             <a class="collapse-item" href="404.html">404 Page</a>
             <a class="collapse-item" href="blank.html">Blank Page</a>
-            <a class="collapse-item" href="registerStudent.html">Register Student</a>
-            <a class="collapse-item active" href="/subjectInformation">Register Silabus</a>
+            <a class="collapse-item active" href="registerStudent.html">Register Student</a>
+            <a class="collapse-item" href="/subjectInformation">Register Silabus</a>
             
           </div>
         </div>
@@ -363,37 +349,49 @@ textarea {
 
         </nav>
         <!-- End of Topbar -->
-        
+
         <!-- Begin Page Content -->
         <div class="container-fluid">
         
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Register Silabus</h1>
-          
-          <div class="card shadow mb-4">
           <div class="text-center">
-          	<div class="card-header py-3">
-            	<h1 class="m-0 font-weight-bold text-primary">Añadir Estrategias de Enseñanza</h1>
-          	</div>
+            <h1 class="h4 text-gray-900 mb-4">Register Teacher</h1>
           </div>
-          	<div class="card-body">
-		          <form class="user" action="/registerEstrategy" method="post">
-		          <div class="text-center">
-					<select class="btn btn-danger btn-icon-split" id="list" th:field="*{estrategias}">
-		         		<option class="form-control form-control-user" value=""> Please select a Strategy ... </option>
-		   				<option  class="form-control form-control-user" th:each="strategy : ${estrategias}" th:value="${strategy.id}" th:text="${strategy.tipo}" />
-					</select>
-					</div>
-					<br><textarea class="form-control form-control-user" style="border-radius: 10px;" rows="4" cols="50" name="descripcion" placeholder="Descripcion"></textarea><br>
-					<input type="text" name="selected" id="selected" hidden="false"> 
-					<input type="submit" class="btn btn-primary btn-user btn-block" value="AÑADIR ESTRATEGIA" onclick="return refresh();">
-		          </form>
-		          <br>
-		          <form class="user" action="/registerEstrategyNext" method="post">
-		          	<input type="submit" class="btn btn-primary btn-user btn-block" value="Next">
-		          </form>
-	        </div>
-         </div>
+          <form class="user" action="/registerTeacher" method="post">
+            
+              <div class="form-group row">
+              <div class="col-sm-6 mb-3 mb-sm-0">
+                <input type="text" class="form-control form-control-user" name="name" placeholder="Name">
+              </div>
+              
+              <div class="col-sm-6">
+                <input type="text" class="form-control form-control-user" name="ap_m" placeholder="Paternal surname">
+              </div>
+              </div>
+              <div class="form-group row">
+              <div class="col-sm-6 mb-3 mb-sm-0">
+                <input type="text" class="form-control form-control-user" name="ap_p" placeholder="Materal surname">
+              </div>
+              
+              <div class="col-sm-6">
+                <input type="text" class="form-control form-control-user" name="dni" placeholder="DNI">
+              </div>
+              </div>
+              <div class="form-group row">
+              <div class="col-sm-6 mb-3 mb-sm-0">
+                <input type="text" class="form-control form-control-user" name="grado_academico" placeholder="grado_academico">
+              </div>
+              <div class="col-sm-6">
+              <select  style="width:100%;height:100%;"  id="list" th:field="*{dep_academico}">
+		        <option class="form-control form-control-user" value=""> Please select a Academic Department ... </option>
+		   		<option  class="form-control form-control-user" th:each="dep : ${dep_academico}" th:value="${dep.id}" th:text="${dep.name}" />
+				</select>
+				</div>
+              </div>
+     		
+			<input type="text" name="selected" id="selected" value="" hidden="false"> 
+            <input type="submit" class="btn btn-primary btn-user btn-block" value="Register Teacher" onclick="refresh()">
+          </form>
           <hr>
         </div>
         <!-- /.container-fluid -->

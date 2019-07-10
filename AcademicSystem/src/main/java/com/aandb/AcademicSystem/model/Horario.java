@@ -8,7 +8,12 @@ public class Horario {
 	private String grupo;
 	private String horario;
 	
-	Horario(){	}
+	Horario(){
+		this.dia_semana = "dia_semana";
+		this.tipo_clase = "tipo_clase";
+		this.grupo = "grupo";
+		this.horario = "horario";
+	}
 
 	public Horario(int id_silabo, String dia_semana, String tipo_clase, String grupo, String horario) {
 		this.id_silabo = id_silabo;

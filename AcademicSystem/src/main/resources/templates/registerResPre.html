@@ -18,14 +18,17 @@
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
 	
 	<script type="text/javascript">
-	function refresh(){
-		var e=document.getElementById("list");
-		document.getElementById('selected').value=e.options[e.selectedIndex].value;
-		if(e.options[e.selectedIndex].value=="")
-			return false;
-		else
-			return true;
-	}
+		function refresh(){
+			var e=document.getElementById("listpreguntas");
+			var d=document.getElementById("listresultados");
+			document.getElementById("pregunta").value=e.options[e.selectedIndex].value;
+			document.getElementById("resultado").value=d.options[d.selectedIndex].value;
+			var nivel=document.getElementById("nivel").value;
+			if(e.options[e.selectedIndex].value=="" || d.options[d.selectedIndex].value=="" || nivel=="")
+				return false;
+			else
+				return true;
+		}
 	</script>
 	<style> 
 input[type=text] {
@@ -49,6 +52,12 @@ textarea {
   border-radius: 10px;
   background-color:white;
   resize: none;
+}
+select option {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 10px;
 }
 </style>
 </head>
@@ -368,32 +377,51 @@ textarea {
         <div class="container-fluid">
         
           <!-- Page Heading -->
-          <h1 class="h3 mb-4 text-gray-800">Register Silabus</h1>
-          
-          <div class="card shadow mb-4">
-          <div class="text-center">
-          	<div class="card-header py-3">
-            	<h1 class="m-0 font-weight-bold text-primary">Añadir Estrategias de Enseñanza</h1>
-          	</div>
+          <h1 class="h3 mb-4 text-gray-800">Register Evaluacion</h1>
+          <div class="form-group row">
+          <div class="col-sm-6 mb-3 mb-sm-0">
+	          <div class="card shadow mb-4">
+		          <div class="card-header py-3">
+		          	<h6 class="m-0 font-weight-bold text-primary">Añadir Preguntas</h6>
+		          </div>
+		          <div class="card-body">
+		          <form class="user" action="/registerPregunta" method="post">
+		         	<textarea   placeholder="Pregunta" rows="4" cols="50" name="pregunta"></textarea><br>
+		         	<textarea   placeholder="Respuesta" rows="4" cols="50" name="respuesta"></textarea><br>
+		            <input type="submit" class="btn btn-primary btn-user btn-block" value="AÑADIR PREGUNTA">
+		          </form>
+		          </div>
+	          </div>
           </div>
-          	<div class="card-body">
-		          <form class="user" action="/registerEstrategy" method="post">
-		          <div class="text-center">
-					<select class="btn btn-danger btn-icon-split" id="list" th:field="*{estrategias}">
-		         		<option class="form-control form-control-user" value=""> Please select a Strategy ... </option>
-		   				<option  class="form-control form-control-user" th:each="strategy : ${estrategias}" th:value="${strategy.id}" th:text="${strategy.tipo}" />
-					</select>
-					</div>
-					<br><textarea class="form-control form-control-user" style="border-radius: 10px;" rows="4" cols="50" name="descripcion" placeholder="Descripcion"></textarea><br>
-					<input type="text" name="selected" id="selected" hidden="false"> 
-					<input type="submit" class="btn btn-primary btn-user btn-block" value="AÑADIR ESTRATEGIA" onclick="return refresh();">
-		          </form>
-		          <br>
-		          <form class="user" action="/registerEstrategyNext" method="post">
-		          	<input type="submit" class="btn btn-primary btn-user btn-block" value="Next">
-		          </form>
-	        </div>
-         </div>
+          <div class="col-sm-6">
+          <div class="card shadow mb-4">
+          	<div class="card-header py-3">
+		          	<h6 class="m-0 font-weight-bold text-primary">Resultado-Pregunta</h6>
+		    </div>
+		    <div class="card-body">
+		          <form class="user" action="/registerResPre" method="post">
+		          <select class="btn btn-info btn-icon-split" style="width:100%;" id="listpreguntas" th:field="*{preguntas}">
+		         		<option class="form-control form-control-user" value=""> Please select a Question ... </option>
+		   				<option  class="form-control form-control-user" th:each="quest : ${preguntas}" th:value="${quest.id}" th:text="${quest.descripcion}" />
+					</select><br>
+					<h6></h6>
+					<select class="btn btn-info btn-icon-split" style="width:100%;" id="listresultados" th:field="*{resultados}">
+		         		<option class="form-control form-control-user" value=""> Please select a Result ... </option>
+		   				<option  class="form-control form-control-user" th:each="result : ${resultados}" th:value="${result.id}" th:text="${result.descripcion}" />
+					</select><br>
+					<input type="text" class="form-control form-control-user" id="pregunta" name="pregunta" hidden="false">
+					<input type="text" class="form-control form-control-user" id="resultado" name="resultado" hidden="false">
+					<br><input type="text" class="form-control form-control-user" name="nivel" id="nivel" value="" placeholder="Nivel"><br>
+					<input type="submit" class="btn btn-primary btn-user btn-block" value="AÑADIR RESULTADO" onclick="return refresh();">
+				</form>
+			</div>
+		</div>
+		</div>
+		</div>
+        <form class="user" action="/evaluacionEnd" method="post">
+          	<input type="submit" class="btn btn-primary btn-user btn-block" value="Finish">
+        </form>
+         
           <hr>
         </div>
         <!-- /.container-fluid -->

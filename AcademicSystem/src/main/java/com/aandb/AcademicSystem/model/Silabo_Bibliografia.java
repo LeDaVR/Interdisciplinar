@@ -6,7 +6,9 @@ public class Silabo_Bibliografia {
 	private int id_silabo;
 	private int id_bibliografia;
 	
-	public Silabo_Bibliografia() {}
+	public Silabo_Bibliografia() {
+		tipo="tipo";
+	}
 	
 	public Silabo_Bibliografia(String tipo, int id_silabo, int id_bibliografia) {
 		this.tipo = tipo;

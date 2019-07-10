@@ -5,7 +5,9 @@ public class Competencias {
 	private int idsilabo;
 	private String nombre;
 	
-	public Competencias() {}
+	public Competencias() {
+		nombre="nombre";
+	}
 	
 	public Competencias(int idsilabo, String nombre) {
 		this.idsilabo = idsilabo;

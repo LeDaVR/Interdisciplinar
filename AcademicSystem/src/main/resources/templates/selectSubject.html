@@ -19,6 +19,10 @@
 		function refreshd(){
 			var e=document.getElementById("list");
 			document.getElementById('selected').value=e.options[e.selectedIndex].value;
+			if(e.options[e.selectedIndex].value=="")
+				return false;
+			else
+				return true;
 		}
 	</script>
 </head>
@@ -343,19 +347,28 @@
             <h1 class="h4 text-gray-900 mb-4">Subject Information</h1>
           </div>
           <form class="user" action="/selectSubject" method="post" >
-          <div class="form-group row">
-          	<select class="btn btn-info btn-icon-split" id="list" th:field="*{subjects}">
-         		<option class="form-control form-control-user" value=""> Please select a subject ... </option>
-   				<option  class="form-control form-control-user" th:each="subject : ${subjects}" th:value="${subject.name}" th:text="${subject.name}" />
-			</select>
-		  <div class="col-sm-6">
-                <input type="text" class="form-control form-control-user" name="periodo_academico" placeholder="Periodo Academico">
-          </div>
-          </div>
+	          <div class="card shadow mb-4">
+	          <div class="card-header py-3">
+	          <h6 class="m-0 font-weight-bold text-primary">Subjects</h6>
+	          </div>
+	          <div class="card-body">
+	          	<select class="btn btn-info btn-icon-split" id="list" th:field="*{subjects}">
+	         		<option class="form-control form-control-user" value=""> Please select a subject ... </option>
+	   				<option  class="form-control form-control-user" th:each="subject : ${subjects}" th:value="${subject.name}" th:text="${subject.name}" />
+				</select>
+	          </div>
+	          </div>
+	        <div class="card shadow mb-4">
+	        <div class="card-header py-3">
+	          <h6 class="m-0 font-weight-bold text-primary">Periodo Academico</h6>
+	         </div>
+	         <div class="card-body">
+	        <input type="text" class="form-control form-control-user" name="periodo_academico" placeholder="Periodo Academico">
+	        </div>
+	        </div>
 			<input type="text" name="selected" id="selected" hidden="false">
-			<br><br><br><br><br><br><br><br><br><br><br><br>
 		  <div class="text-center">
-            <input type="submit" class="btn btn-primary btn-user btn-block" value="Next" onclick="refreshd()">
+            <input type="submit" class="btn btn-primary btn-user btn-block" value="Next" onclick="return refreshd();">
           </div>
           </form>      
           <hr>

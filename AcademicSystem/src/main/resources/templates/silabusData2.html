@@ -15,6 +15,29 @@
 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
+  <style> 
+input[type=text] {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: .8rem;
+  background-color: white;
+  background-position: 10px 10px; 
+  background-repeat: no-repeat;
+  padding: 12px 5px 12px 5px;
+}
+textarea {
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color:white;
+  resize: none;
+}
+</style>
 </head>
 
 <body id="page-top">
@@ -335,9 +358,54 @@
           <h1 class="h3 mb-4 text-gray-800">Register Silabus</h1>
           <form class="user" action="/silabusData2" method="post" >
           	<h1 class="h4 text-gray-900 mb-4">CONTENIDOS DE LA ASIGNATURA</h1>
-			<textarea class="form-control form-control-user" rows="4" cols="80" name="unidad1" placeholder="Primera Unidad" ></textarea><br>
-			<textarea class="form-control form-control-user" rows="4" cols="80" name="unidad2" placeholder="Segunda Unidad"></textarea><br>
-			<textarea class="form-control form-control-user" rows="4" cols="80" name="unidad3" placeholder="Tercera Unidad"></textarea><br>
+          	<div class="card shadow mb-4">
+	         <div class="card-header py-3">
+	          	<h6 class="m-0 font-weight-bold text-primary">Primera Unidad</h6>
+	         </div>
+	         <div class="card-body">
+			<textarea  rows="4" cols="80" name="unidad1" placeholder="Primera Unidad" ></textarea>
+			</div>
+			</div>
+			<div class="card shadow mb-4">
+	         <div class="card-header py-3">
+	          	<h6 class="m-0 font-weight-bold text-primary">Segunda Unidad</h6>
+	         </div>
+	         <div class="card-body">
+			<textarea  rows="4" cols="80" name="unidad2" placeholder="Segunda Unidad"></textarea>
+			</div>
+			</div>
+			<div class="card shadow mb-4">
+	         <div class="card-header py-3">
+	          	<h6 class="m-0 font-weight-bold text-primary">Tercera Unidad</h6>
+	         </div>
+	         <div class="card-body">
+			<textarea  rows="4" cols="80" name="unidad3" placeholder="Tercera Unidad"></textarea>
+			</div>
+			</div>
+			<div class="card shadow mb-4">
+	         <div class="card-header py-3">
+	          	<h6 class="m-0 font-weight-bold text-primary">Cuarta Unidad</h6>
+	         </div>
+	         <div class="card-body">
+			<textarea  rows="4" cols="80" name="unidad4" placeholder="Cuarta Unidad" ></textarea>
+			</div>
+			</div>
+			<div class="card shadow mb-4">
+	         <div class="card-header py-3">
+	          	<h6 class="m-0 font-weight-bold text-primary">Quinta Unidad</h6>
+	         </div>
+	         <div class="card-body">
+			<textarea  rows="4" cols="80" name="unidad5" placeholder="Quinta Unidad"></textarea>
+			</div>
+			</div>
+			<div class="card shadow mb-4">
+	         <div class="card-header py-3">
+	          	<h6 class="m-0 font-weight-bold text-primary">Sexta Unidad</h6>
+	         </div>
+	         <div class="card-body">
+			<textarea  rows="4" cols="80" name="unidad6" placeholder="Sexta Unidad"></textarea>
+			</div>
+			</div>
 			
 		  <div class="text-center">
             <input type="submit" class="btn btn-primary btn-user btn-block" value="Next">

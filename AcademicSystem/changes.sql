@@ -88,3 +88,10 @@ CHANGE COLUMN `fecha` `fecha` VARCHAR(256) NULL DEFAULT NULL ,
 CHANGE COLUMN `editorial` `editorial` VARCHAR(256) NULL DEFAULT NULL ,
 CHANGE COLUMN `edicion` `edicion` VARCHAR(256) NULL DEFAULT NULL ;
 
+ALTER TABLE `academicsystemdb`.`docentes` 
+DROP COLUMN `docentescol`;
+
+ALTER TABLE `academicsystemdb`.`docentes` 
+ADD COLUMN `apellido_materno` VARCHAR(45) NULL AFTER `iddepartamentoacademico`,
+ADD COLUMN `apellido_paterno` VARCHAR(45) NULL AFTER `apellido_materno`;
+

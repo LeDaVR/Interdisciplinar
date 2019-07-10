@@ -6,7 +6,9 @@ public class Silabo_Estrategia {
 	private int idestrategia;
 	private String descripcion;
 	
-	public Silabo_Estrategia() {}
+	public Silabo_Estrategia() {
+		descripcion="descripcion";
+	}
 	
 	public Silabo_Estrategia(int idsilabo, int idestrategia, String descripcion) {
 		this.idsilabo = idsilabo;

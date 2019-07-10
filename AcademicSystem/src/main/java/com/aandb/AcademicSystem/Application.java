@@ -24,6 +24,9 @@ import com.aandb.AcademicSystem.dao.Estrategia_EnseniansaDAO;
 import com.aandb.AcademicSystem.dao.Silabo_EstrategiaDAO;
 import com.aandb.AcademicSystem.dao.BibliographyDAO;
 import com.aandb.AcademicSystem.dao.Silabo_BibliografiaDAO;
+import com.aandb.AcademicSystem.dao.EvaluacionDAO;
+import com.aandb.AcademicSystem.dao.PreguntaDAO;
+import com.aandb.AcademicSystem.dao.Res_PreguntasDAO;
 
 @SpringBootApplication
 public class Application
@@ -44,6 +47,9 @@ public class Application
     public static Silabo_EstrategiaDAO silabo_estrategiaDAO;
     public static BibliographyDAO bibliographyDAO;
     public static Silabo_BibliografiaDAO silabo_bibliografiaDAO;
+    public static EvaluacionDAO evaluacionDAO;
+    public static PreguntaDAO preguntaDAO;
+    public static Res_PreguntasDAO res_preguntasDAO;
     
     public static void main(String[] args)
     {
@@ -68,7 +74,10 @@ public class Application
             silabo_estrategiaDAO = new Silabo_EstrategiaDAO(jdbcURL, jdbcUsername, jdbcPassword);
             bibliographyDAO =  new BibliographyDAO(jdbcURL, jdbcUsername, jdbcPassword);
             silabo_bibliografiaDAO = new Silabo_BibliografiaDAO(jdbcURL, jdbcUsername, jdbcPassword);
-        }
+            evaluacionDAO = new EvaluacionDAO(jdbcURL, jdbcUsername, jdbcPassword);
+            preguntaDAO = new PreguntaDAO(jdbcURL, jdbcUsername, jdbcPassword);
+            res_preguntasDAO = new Res_PreguntasDAO(jdbcURL, jdbcUsername, jdbcPassword);
+        } 
         catch(SQLException e)
         {
             System.out.println("Failed to initialize the DAOs!");

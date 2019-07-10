@@ -4,7 +4,9 @@ public class Estrategia_Enseniansa {
 	int id;
 	String tipo;
 	
-	public Estrategia_Enseniansa() {}
+	public Estrategia_Enseniansa() {
+		tipo="tipo";
+	}
 	
 	public Estrategia_Enseniansa(String tipo) {
 		this.tipo = tipo;

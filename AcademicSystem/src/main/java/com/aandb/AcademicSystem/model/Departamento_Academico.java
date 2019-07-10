@@ -4,7 +4,9 @@ public class Departamento_Academico {
 	int id;
 	String name;
 	
-	public Departamento_Academico() {}
+	public Departamento_Academico() {
+		name="nombre";
+	}
 	
 	public Departamento_Academico(String name) {
 		this.name = name;

@@ -8,7 +8,13 @@ public class Bibliography {
 	String editorial;
 	String edicion;
 	
-	public Bibliography() {}
+	public Bibliography() {
+		this.nombre = "nombre";
+		this.autor = "autor";
+		this.fecha = "fecha";
+		this.editorial = "editorial";
+		this.edicion = "edicion";
+	}
 	
 	public Bibliography(String nombre, String autor, String fecha, String editorial, String edicion) {
 		this.nombre = nombre;

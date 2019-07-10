@@ -26,6 +26,9 @@ import com.aandb.AcademicSystem.model.Estrategia_Enseniansa;
 import com.aandb.AcademicSystem.model.Silabo_Estrategia;
 import com.aandb.AcademicSystem.model.Bibliography;
 import com.aandb.AcademicSystem.model.Silabo_Bibliografia;
+import com.aandb.AcademicSystem.model.Evaluacion;
+import com.aandb.AcademicSystem.model.Pregunta;
+import com.aandb.AcademicSystem.model.Res_Preguntas;
 
 @Controller
 public class MainController
@@ -68,6 +71,26 @@ public class MainController
     	Application.studentDAO.insert(student);
         return "redirect:index.html";
     }
+    
+    @RequestMapping(method = {RequestMethod.POST, RequestMethod.GET}, value = "/teacherInformation")
+    public String TeacherInformation(Model model) throws SQLException
+    {
+    	model.addAttribute("dep_academico", Application.departamento_academicoDAO.listDepartamentos());
+        return "registerTeacher";
+    }
+    
+    @RequestMapping(method = {RequestMethod.POST, RequestMethod.GET}, value = "/registerTeacher")
+    public String registerTeacher(@RequestParam(name = "name") String name,
+			  @RequestParam(name = "ap_m") String ap_m,
+			  @RequestParam(name = "ap_p") String ap_p,
+			  @RequestParam(name = "grado_academico") String grado_academico,
+			  @RequestParam(name = "dni") String dni,
+			  @RequestParam(name = "selected") String fk) throws SQLException
+	{
+		Teacher teacher = new Teacher(Integer.parseInt(dni), name,ap_p,ap_m,grado_academico,Integer.parseInt(fk));
+		Application.teacherDAO.insert(teacher);
+		return "redirect:index.html";
+	}
     
     @RequestMapping(method = {RequestMethod.POST, RequestMethod.GET}, value = "/subjectInformation")
     public String subjectInformation(Model model) throws SQLException
@@ -331,4 +354,72 @@ public class MainController
     	
     	return "redirect:index.html";
     }
+    
+    @RequestMapping(method = {RequestMethod.POST, RequestMethod.GET}, value = "/evaluacionInformation")
+    public String evaluacionInformation(Model model) throws SQLException
+	{
+    	
+    	model.addAttribute("silabos",Application.silaboDAO.listSilabos());
+    	return "registerEvaluacion";
+	}
+    
+    @RequestMapping(method = {RequestMethod.POST, RequestMethod.GET}, value = "/registerEvaluacion")
+    public String registerEvaluacion(Model model,@RequestParam(name = "tipo") String tipo,@RequestParam(name = "evaluacion") String evaluacion,
+    								@RequestParam(name = "peso") String peso,@RequestParam(name = "fecha") String fecha,
+    								@RequestParam(name = "selected") String selected) throws SQLException
+	{
+    	Evaluacion evaluation= new Evaluacion();
+    	evaluation.setSilabo_id(Integer.parseInt(selected));
+    	evaluation.setTipo(tipo);
+    	evaluation.setEvaluacion(evaluacion);
+    	evaluation.setPeso(Integer.parseInt(peso));
+    	evaluation.setFecha(fecha);
+    	Application.evaluacionDAO.insert(evaluation);
+    	
+    	foreignkey=Application.evaluacionDAO.getLastId();
+    	
+    	
+    	model.addAttribute("preguntas",Application.preguntaDAO.listPreguntas());
+    	model.addAttribute("resultados",Application.resultadosDAO.listResults());
+    	return "registerResPre";
+	}
+    
+    @RequestMapping(method = {RequestMethod.POST, RequestMethod.GET}, value = "/registerPregunta")
+    public String registerPregunta(Model model,@RequestParam(name = "pregunta") String pregunta,
+										@RequestParam(name = "respuesta") String respuesta) throws SQLException
+	{
+    	Pregunta quest=new Pregunta();
+    	quest.setDescripcion(pregunta);
+    	quest.setRespuesta(respuesta);
+    	quest.setId_evaluacion(foreignkey);
+    	Application.preguntaDAO.insert(quest);
+    	
+    	model.addAttribute("preguntas",Application.preguntaDAO.listPreguntas());
+    	model.addAttribute("resultados",Application.resultadosDAO.listResults());
+    	return "registerResPre";
+	}
+    
+    @RequestMapping(method = {RequestMethod.POST, RequestMethod.GET}, value = "/registerResPre")
+    public String registerResPre(Model model,@RequestParam(name = "nivel") String nivel,
+    		@RequestParam(name = "resultado") String resultado,@RequestParam(name = "pregunta") String pregunta) throws SQLException
+	{
+    	Res_Preguntas res_pre = new Res_Preguntas();
+    	res_pre.setNivel(Integer.parseInt(nivel));
+    	res_pre.setId_preguntas(Integer.parseInt(pregunta));
+    	res_pre.setId_resultados(Integer.parseInt(resultado));
+    	Application.res_preguntasDAO.insert(res_pre);
+    	
+    	
+    	model.addAttribute("preguntas",Application.preguntaDAO.listPreguntas());
+    	model.addAttribute("resultados",Application.resultadosDAO.listResults());
+    	return "registerResPre";
+	}
+    
+    @RequestMapping(method = {RequestMethod.POST, RequestMethod.GET}, value = "/evaluacionEnd")
+    public String evaluacionEnd() throws SQLException
+	{
+    	foreignkey=0;
+    	return "redirect:index.html";
+	}
+    
 }
